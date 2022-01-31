@@ -3,7 +3,7 @@
 This is a simple demo of how to (ab)use scoping and extension type resources in Bicep with a `main.bicep` that deploys at the subscription scope the option to create a role assignment at either subscription, resource group or resource scope with one template.
 
 Depending on the `type` parameter the main template invokes one of three templates as modules. Note that due
-to missing support of fully parametrized scoping in Bicep an ARM template is used for the role assignment on resource scope.
+to missing support (see issues [2245](https://github.com/Azure/bicep/issues/2245), [1761](https://github.com/Azure/bicep/issues/1761)) of fully parametrized scoping in Bicep an ARM template is used for the role assignment on resource scope.
 
 ## Parameters
 
