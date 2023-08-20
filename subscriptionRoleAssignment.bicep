@@ -9,7 +9,7 @@ param roleDefinitionId string
 @description('A new GUID used to identify the role assignment')
 param roleNameGuid string = guid(principalId, roleDefinitionId, subscription().subscriptionId)
 
-resource roleAssignSub 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' = {
+resource roleAssignSub 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   name: roleNameGuid
   properties: {
     roleDefinitionId: roleDefinitionId

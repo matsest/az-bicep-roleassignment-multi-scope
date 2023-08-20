@@ -1,4 +1,3 @@
-
 targetScope = 'subscription'
 
 param principalId string
@@ -39,7 +38,7 @@ var roleMap = {
 var rgFromResourceId = (type == 'resource') ? split(split(resourceId, '/resourceGroups/')[1], '/')[0] : ''
 
 // if type == resource
-module resourceRoleAssignment 'resourceRoleAssignment.json' = if(type == 'resource') {
+module resourceRoleAssignment 'resourceRoleAssignment.json' = if (type == 'resource') {
   name: 'foo-resource'
   scope: resourceGroup(subscriptionId, rgFromResourceId)
   params: {
