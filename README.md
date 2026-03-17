@@ -55,23 +55,16 @@ module roleAssignment './main.bicep' = {
 
 ### Azure CLI
 
-#### Subscription scope
-
 ```bash
+# Subscription scope
 az deployment sub create -n roleassignment-subscription -f main.bicep \
     --parameters principalId=<id> type=subscription
-```
 
-#### Resource Group scope
-
-```bash
+# Resource Group scope
 az deployment sub create -n roleassignment-rg -f main.bicep \
     --parameters principalId=<id> type=resourceGroup resourceGroupName=<rg name>
-```
 
-#### Resource scope
-
-```bash
+# Resource scope
 az deployment sub create -n roleassignment-res -f main.bicep \
     --parameters principalId=<id> type=resource resourceId=<resource ID>
 ```
