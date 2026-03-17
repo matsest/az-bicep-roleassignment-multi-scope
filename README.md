@@ -16,21 +16,60 @@ to missing support (see issues [#2245](https://github.com/Azure/bicep/issues/224
 
 ## Usage
 
-### Subscription scope
+### Bicep module
+
+
+```bicep
+targetScope = 'subscription'
+
+// Subscription scope
+module roleAssignment './main.bicep' = {
+  params: {
+    principalId: '<id>'
+    type: 'subscription'
+    builtInRoleType: 'Reader'
+  }
+}
+
+// Resource Group scope
+module roleAssignment './main.bicep' = {
+  params: {
+    principalId: '<id>'
+    type: 'resourceGroup'
+    resourceGroupName: '<rg name>'
+    builtInRoleType: 'Reader'
+  }
+}
+
+// Resource scope
+module roleAssignment './main.bicep' = {
+  params: {
+    principalId: '<id>'
+    type: 'resource'
+    resourceId: '<resource ID>'
+    builtInRoleType: 'Reader'
+  }
+}
+```
+
+
+### Azure CLI
+
+#### Subscription scope
 
 ```bash
 az deployment sub create -n roleassignment-subscription -f main.bicep \
     --parameters principalId=<id> type=subscription
 ```
 
-### Resource Group scope
+#### Resource Group scope
 
 ```bash
 az deployment sub create -n roleassignment-rg -f main.bicep \
     --parameters principalId=<id> type=resourceGroup resourceGroupName=<rg name>
 ```
 
-### Resource scope
+#### Resource scope
 
 ```bash
 az deployment sub create -n roleassignment-res -f main.bicep \
